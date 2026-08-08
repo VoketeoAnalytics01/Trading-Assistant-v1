@@ -1,34 +1,56 @@
-def screenshots(profile):
-    """Attaches optional chart screenshots to the journal entry: file path + required description.
-    AI-generated descriptions are reserved for premium (per the original spec) -- not built yet,
-    just leaving the field in place so that feature has somewhere to land later.
+def journal_validation(profile):
+    """Checks this trade against the trader's own stated conditions from Setup-Check,
+    producing a per-condition adherence score. This is the core metric the whole
+    app is built around -- consistency of execution, not just win/loss.
     """
-    print("\n=== Screenshots ===")
+    print("\n=== Plan Adherence ===")
 
-    entries = []
+    conditions = profile.get("trading_plan", {}).get("conditions", [])
 
-    while True:
-        add = input("Add a screenshot? (y/n): ").strip().lower()
-        if add != "y":
-            break
+    if not conditions:
+        print("No trading plan conditions found -- skipping adherence check.")
+        profile["journal"]["current_trade"]["adherence"] = {
+            "applicable": False,
+            "results": [],
+            "conditions_met": 0,
+            "conditions_total": 0,
+            "adherence_pct": 0.0,
+            "warnings": []
+        }
+        return
 
+    print("For each condition from your trading plan, did you follow it on this trade?\n")
+
+    results = []
+    warnings = []
+
+    for condition in conditions:
         while True:
-            path = input("File path (e.g. /sdcard/Pictures/chart1.png): ").strip()
-            if path:
+            answer = input(f'"{condition}" -- followed? (y/n): ').strip().lower()
+            if answer in ("y", "n"):
                 break
-            print("File path can't be empty.")
+            print("Please enter y or n.")
 
-        while True:
-            description = input("Brief description of this screenshot: ").strip()
-            if description:
-                break
-            print("A description is required.")
+        followed = (answer == "y")
+        results.append({"condition": condition, "followed": followed})
+        if not followed:
+            warnings.append(condition)
 
-        entries.append({
-            "path": path,
-            "description": description,
-            "ai_description": None
-        })
-        print(f"✓ Screenshot added ({len(entries)} total).")
+    conditions_met = sum(1 for r in results if r["followed"])
+    conditions_total = len(results)
+    adherence_pct = round((conditions_met / conditions_total) * 100, 1)
 
-    profile["journal"]["current_trade"]["screenshots"] = entries
+    profile["journal"]["current_trade"]["adherence"] = {
+        "applicable": True,
+        "results": results,
+        "conditions_met": conditions_met,
+        "conditions_total": conditions_total,
+        "adherence_pct": adherence_pct,
+        "warnings": warnings
+    }
+
+    print(f"\nAdherence: {conditions_met}/{conditions_total} conditions followed ({adherence_pct}%)")
+    if warnings:
+        print("Not followed:")
+        for w in warnings:
+            print(f"  - {w}")

@@ -35,4 +35,4 @@ if __name__ == "__main__":
     # In the real app, this same shared profile comes from Setup-Check + Risk-Check.
     profile = {"username": "Teo"}
     trade_journal(profile)
-EOF
+

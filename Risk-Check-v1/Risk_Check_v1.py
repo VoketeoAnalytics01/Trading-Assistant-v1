@@ -8,6 +8,7 @@ from risk_validation import risk_validation
 from trade_checklist import trade_checklist
 from trade_summary_display import trade_summary_display
 
+
 def risk_check(profile):
 
     # Create risk structure
@@ -29,87 +30,17 @@ def risk_check(profile):
     trade_checklist(profile)
     trade_summary_display(profile)
 
-    return profile
-
 
 if __name__ == "__main__":
 
     print("=== Trading Assistant V1 : Risk Check ===\n")
+    print("(Standalone test only -- the real app supplies a Setup-Check profile via main.py)\n")
 
-    # ==================================================
-    # TEMPORARY PROFILE (FOR DEVELOPMENT & TESTING ONLY)
-    # Replace this with Setup_Check_v1 profile later.
-    # ==================================================
+    # Minimal fixture -- only "username" matters here, since risk_profile()
+    # builds its own "risk" section regardless of what else is in profile.
+    profile = {"username": "john"}
 
-    profile = {
-
-        "username": "john",
-
-        "trading": {
-
-            "markets": [
-                "Forex",
-                "Crypto",
-                "Indices",
-                "Commodities",
-                "Stocks"
-            ],
-
-            "assets": [
-
-                # Forex
-                "EURUSD",
-                "GBPUSD",
-                "USDJPY",
-                "AUDUSD",
-                "USDCHF",
-                "USDCAD",
-                "NZDUSD",
-
-                # Crypto
-                "BTCUSD",
-                "ETHUSD",
-                "SOLUSD",
-                "XRPUSD",
-
-                # Indices
-                "US100",
-                "SPX500",
-                "GER40",
-                "UK100",
-
-                # Commodities
-                "XAUUSD",
-                "XAGUSD",
-                "WTI",
-                "Brent",
-
-                # Stocks
-                "AAPL",
-                "TSLA",
-                "NVDA",
-                "MSFT"
-            ]
-        },
-
-        "trading_plan": {
-
-            "rules_count": 4,
-
-            "minimum_conditions": 3,
-
-            "setup_threshold": 75,
-
-            "conditions": [
-                "Asian liquidity sweep",
-                "High impact news",
-                "Low market momentum",
-                "Undefined daily bias"
-            ]
-        }
-    }
-
-    profile = risk_check(profile)
+    risk_check(profile)
 
     print("\nRisk Check Completed Successfully!\n")
     print(profile)

@@ -7,21 +7,23 @@ def trade_calculator(profile):
             "EURUSD", "GBPUSD", "USDJPY",
             "AUDUSD", "USDCHF", "USDCAD", "NZDUSD"
         ],
-
         "Crypto": [
             "BTCUSD", "ETHUSD", "SOLUSD", "XRPUSD"
         ],
-
         "Indices": [
             "US100", "SPX500", "GER40", "UK100"
         ],
-
         "Commodities": [
             "XAUUSD", "XAGUSD", "WTI", "Brent"
         ],
-
         "Stocks": [
             "AAPL", "TSLA", "NVDA", "MSFT"
+        ],
+        "Options": [
+            "Stock Options", "Index Options"
+        ],
+        "Futures": [
+            "ES", "NQ", "CL", "GC"
         ]
     }
 
@@ -44,58 +46,50 @@ def trade_calculator(profile):
                 print(f"{number}. {asset}")
                 number += 1
 
+    if not available_assets:
+        # Nothing matched -- don't trap the trader in an unwinnable menu.
+        print("\nNone of your configured assets matched this catalog.")
+        asset = input("Enter the asset symbol manually: ").strip().upper()
+        market = profile["trading"]["markets"][0] if profile["trading"]["markets"] else ""
+        profile["risk"]["current_trade"]["asset"] = asset
+        profile["risk"]["current_trade"]["market"] = market
+    else:
+        while True:
+            try:
+                choice = int(input("\nSelect Asset: "))
+                if 1 <= choice <= len(available_assets):
+                    asset, market = available_assets[choice - 1]
+                    profile["risk"]["current_trade"]["asset"] = asset
+                    profile["risk"]["current_trade"]["market"] = market
+                    break
+                print("Invalid selection.")
+            except ValueError:
+                print("Please enter a number.")
+
     while True:
-
-        try:
-            choice = int(input("\nSelect Asset: "))
-
-            if 1 <= choice <= len(available_assets):
-
-                asset, market = available_assets[choice - 1]
-
-                profile["risk"]["current_trade"]["asset"] = asset
-                profile["risk"]["current_trade"]["market"] = market
-
-                break
-
-            print("Invalid selection.")
-
-        except ValueError:
-            print("Please enter a number.")
-
-    while True:
-
         direction = input("Direction (Buy/Sell): ").strip().lower()
-
         if direction in ["buy", "sell"]:
             profile["risk"]["current_trade"]["direction"] = direction.title()
             break
-
         print("Please enter Buy or Sell.")
 
     while True:
         try:
-            profile["risk"]["current_trade"]["entry"] = float(
-                input("Entry Price: ")
-            )
+            profile["risk"]["current_trade"]["entry"] = float(input("Entry Price: "))
             break
         except ValueError:
             print("Enter a valid number.")
 
     while True:
         try:
-            profile["risk"]["current_trade"]["stop_loss"] = float(
-                input("Stop Loss: ")
-            )
+            profile["risk"]["current_trade"]["stop_loss"] = float(input("Stop Loss: "))
             break
         except ValueError:
             print("Enter a valid number.")
 
     while True:
         try:
-            profile["risk"]["current_trade"]["take_profit"] = float(
-                input("Take Profit: ")
-            )
+            profile["risk"]["current_trade"]["take_profit"] = float(input("Take Profit: "))
             break
         except ValueError:
             print("Enter a valid number.")
