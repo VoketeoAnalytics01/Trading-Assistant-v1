@@ -1,0 +1,35 @@
+{
+    "username": "Kevin",
+    "full_name": "Kevin Teo",
+    "email": "kevinteo@gmail.com",
+    "country": "",
+    "timezone": "",
+    "account_type": "Free",
+    "trading": {
+        "style": "day_trading",
+        "experience": "Intermediate",
+        "sessions": [
+            "New York Session"
+        ],
+        "markets": [
+            "Futures"
+        ],
+        "assets": [
+            "NQ"
+        ]
+    },
+    "trading_plan": {
+        "rules_count": 3,
+        "minimum_conditions": 3,
+        "setup_threshold": 75,
+        "conditions": [
+            "Watch Am session  liquity graps",
+            "There is new week opening gap",
+            "Obey daily risk limiti"
+        ]
+    },
+    "performance": {},
+    "goals": [],
+    "preferences": {},
+    "premium": {}
+}

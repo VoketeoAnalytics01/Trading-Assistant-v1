@@ -1,0 +1,456 @@
+{
+    "username": "test_user",
+    "full_name": "User test",
+    "email": "test@gmail.com",
+    "country": "",
+    "timezone": "",
+    "account_type": "Free",
+    "trading": {
+        "style": "scalping",
+        "experience": "Beginner",
+        "sessions": [
+            "New York Session"
+        ],
+        "markets": [
+            "Options"
+        ],
+        "assets": [
+            "Stock Options"
+        ]
+    },
+    "trading_plan": {
+        "rules_count": 3,
+        "minimum_conditions": 3,
+        "setup_threshold": 75,
+        "conditions": [
+            "no more than 3 trades",
+            "obey risk limit",
+            "Undefined flactuations today"
+        ]
+    },
+    "performance": {},
+    "goals": [],
+    "preferences": {},
+    "premium": {},
+    "risk": {
+        "setup_complete": true,
+        "account": {
+            "balance": 2450.0,
+            "currency": "GBP",
+            "broker": "HFM",
+            "account_type": "Live"
+        },
+        "settings": {
+            "risk_per_trade": 0.5,
+            "daily_loss_limit": 1.5,
+            "weekly_loss_limit": 3.0,
+            "max_open_trades": 2,
+            "minimum_rr": 1.4
+        },
+        "current_trade": {
+            "asset": "Stock Options",
+            "market": "Options",
+            "direction": "Sell",
+            "entry": 1500.0,
+            "stop_loss": 1650.0,
+            "take_profit": 1000.0,
+            "position_size": 0.08,
+            "risk_amount": 12.25,
+            "reward_amount": 500.0,
+            "rr": 3.33,
+            "status": "Approved"
+        },
+        "validation": {
+            "approved": true,
+            "warnings": [],
+            "errors": []
+        },
+        "history": [],
+        "checklist": {
+            "answers": {
+                "no more than 3 trades": true,
+                "obey risk limit": true,
+                "Undefined flactuations today": true
+            },
+            "conditions_met": 3,
+            "total_conditions": 3,
+            "setup_score": 100.0,
+            "passed": true
+        }
+    },
+    "journal": {
+        "current_trade": {
+            "trade_info": {
+                "market": "Options",
+                "symbol": "Stock Options",
+                "session": "New York Session",
+                "direction": "Long",
+                "date": "2026-08-09"
+            },
+            "execution": {
+                "executed": true,
+                "planned": {
+                    "entry_price": 1500.0,
+                    "stop_loss": 1650.0,
+                    "take_profit": 1000.0,
+                    "position_size": 0.08,
+                    "risk_amount": 12.25,
+                    "reward_amount": 500.0,
+                    "risk_reward_ratio": 3.33
+                },
+                "actual": {
+                    "entry_price": 1478.0,
+                    "stop_loss": 1650.0,
+                    "take_profit": 1000.0,
+                    "position_size": 0.08,
+                    "slippage": -22.0
+                },
+                "execution_time": "2026-08-09T20:35:13",
+                "not_executed_reason": "",
+                "not_executed_note": ""
+            },
+            "outcome": {
+                "applicable": true,
+                "close_price": 978.0,
+                "close_time": "2026-08-09T20:36:23",
+                "pnl": 500.0,
+                "result": "Win",
+                "r_multiple": 40.82
+            },
+            "psychology": [
+                "Confident",
+                "Calm / Disciplined"
+            ],
+            "lesson": {
+                "went_well": "Follow your plan",
+                "to_improve": "avoid complications",
+                "key_takeaway": "watch your emotions."
+            },
+            "screenshots": [],
+            "adherence": {
+                "applicable": true,
+                "results": [
+                    {
+                        "condition": "no more than 3 trades",
+                        "followed": true
+                    },
+                    {
+                        "condition": "obey risk limit",
+                        "followed": true
+                    },
+                    {
+                        "condition": "Undefined flactuations today",
+                        "followed": true
+                    }
+                ],
+                "conditions_met": 3,
+                "conditions_total": 3,
+                "adherence_pct": 100.0,
+                "warnings": []
+            }
+        },
+        "entries": [
+            {
+                "trade_info": {
+                    "market": "Options",
+                    "symbol": "Stock Options",
+                    "session": "New York Session",
+                    "direction": "Long",
+                    "date": "2026-08-09"
+                },
+                "execution": {
+                    "executed": true,
+                    "planned": {
+                        "entry_price": 0,
+                        "stop_loss": 950.0,
+                        "take_profit": 1200.0,
+                        "position_size": 0.24,
+                        "risk_amount": 12.25,
+                        "reward_amount": 200.0,
+                        "risk_reward_ratio": 0
+                    },
+                    "actual": {
+                        "entry_price": 1020.0,
+                        "stop_loss": 950.0,
+                        "take_profit": 1200.0,
+                        "position_size": 0.24,
+                        "slippage": 0
+                    },
+                    "execution_time": "2026-08-09T20:02:01",
+                    "not_executed_reason": "",
+                    "not_executed_note": ""
+                },
+                "outcome": {
+                    "applicable": true,
+                    "close_price": 1118.0,
+                    "close_time": "2026-08-09T20:03:17",
+                    "pnl": 98.0,
+                    "result": "Win",
+                    "r_multiple": 8.0
+                },
+                "psychology": [
+                    "Hesitant",
+                    "Bored"
+                ],
+                "lesson": {
+                    "went_well": "focus on what you rules",
+                    "to_improve": "",
+                    "key_takeaway": ""
+                },
+                "screenshots": [],
+                "adherence": {
+                    "applicable": true,
+                    "results": [
+                        {
+                            "condition": "no more than 3 trades",
+                            "followed": true
+                        },
+                        {
+                            "condition": "obey risk limit",
+                            "followed": false
+                        },
+                        {
+                            "condition": "Undefined flactuations today",
+                            "followed": true
+                        }
+                    ],
+                    "conditions_met": 2,
+                    "conditions_total": 3,
+                    "adherence_pct": 66.7,
+                    "warnings": [
+                        "obey risk limit"
+                    ]
+                }
+            },
+            {
+                "trade_info": {
+                    "market": "Options",
+                    "symbol": "Stock Options",
+                    "session": "New York Session",
+                    "direction": "Short",
+                    "date": "2026-08-09"
+                },
+                "execution": {
+                    "executed": false,
+                    "planned": {
+                        "entry_price": 0,
+                        "stop_loss": 4650.88,
+                        "take_profit": 4450.67,
+                        "position_size": 0.14,
+                        "risk_amount": 12.25,
+                        "reward_amount": 109.89,
+                        "risk_reward_ratio": 0
+                    },
+                    "actual": {
+                        "entry_price": 0,
+                        "stop_loss": 0,
+                        "take_profit": 0,
+                        "position_size": 0,
+                        "slippage": 0
+                    },
+                    "execution_time": null,
+                    "not_executed_reason": "Other",
+                    "not_executed_note": "not feeling well"
+                },
+                "outcome": {
+                    "applicable": false,
+                    "close_price": 0,
+                    "close_time": null,
+                    "pnl": 0.0,
+                    "result": "",
+                    "r_multiple": 0.0
+                },
+                "psychology": [
+                    "Frustrated"
+                ],
+                "lesson": {
+                    "went_well": "followed rules",
+                    "to_improve": "no forcing",
+                    "key_takeaway": "watch your system"
+                },
+                "screenshots": [],
+                "adherence": {
+                    "applicable": true,
+                    "results": [
+                        {
+                            "condition": "no more than 3 trades",
+                            "followed": true
+                        },
+                        {
+                            "condition": "obey risk limit",
+                            "followed": true
+                        },
+                        {
+                            "condition": "Undefined flactuations today",
+                            "followed": false
+                        }
+                    ],
+                    "conditions_met": 2,
+                    "conditions_total": 3,
+                    "adherence_pct": 66.7,
+                    "warnings": [
+                        "Undefined flactuations today"
+                    ]
+                }
+            },
+            {
+                "trade_info": {
+                    "market": "Options",
+                    "symbol": "Stock Options",
+                    "session": "New York Session",
+                    "direction": "Short",
+                    "date": "2026-08-09"
+                },
+                "execution": {
+                    "executed": false,
+                    "planned": {
+                        "entry_price": 1000.0,
+                        "stop_loss": 890.0,
+                        "take_profit": 1500.0,
+                        "position_size": 0.11,
+                        "risk_amount": 12.25,
+                        "reward_amount": 500.0,
+                        "risk_reward_ratio": 4.55
+                    },
+                    "actual": {
+                        "entry_price": 0,
+                        "stop_loss": 0,
+                        "take_profit": 0,
+                        "position_size": 0,
+                        "slippage": 0
+                    },
+                    "execution_time": null,
+                    "not_executed_reason": "Changed my mind",
+                    "not_executed_note": ""
+                },
+                "outcome": {
+                    "applicable": false,
+                    "close_price": 0,
+                    "close_time": null,
+                    "pnl": 0.0,
+                    "result": "",
+                    "r_multiple": 0.0
+                },
+                "psychology": [
+                    "Impatient"
+                ],
+                "lesson": {
+                    "went_well": "no impolsive entries",
+                    "to_improve": "",
+                    "key_takeaway": ""
+                },
+                "screenshots": [],
+                "adherence": {
+                    "applicable": true,
+                    "results": [
+                        {
+                            "condition": "no more than 3 trades",
+                            "followed": true
+                        },
+                        {
+                            "condition": "obey risk limit",
+                            "followed": true
+                        },
+                        {
+                            "condition": "Undefined flactuations today",
+                            "followed": true
+                        }
+                    ],
+                    "conditions_met": 3,
+                    "conditions_total": 3,
+                    "adherence_pct": 100.0,
+                    "warnings": []
+                }
+            },
+            {
+                "trade_info": {
+                    "market": "Options",
+                    "symbol": "Stock Options",
+                    "session": "New York Session",
+                    "direction": "Long",
+                    "date": "2026-08-09"
+                },
+                "execution": {
+                    "executed": true,
+                    "planned": {
+                        "entry_price": 1500.0,
+                        "stop_loss": 1650.0,
+                        "take_profit": 1000.0,
+                        "position_size": 0.08,
+                        "risk_amount": 12.25,
+                        "reward_amount": 500.0,
+                        "risk_reward_ratio": 3.33
+                    },
+                    "actual": {
+                        "entry_price": 1478.0,
+                        "stop_loss": 1650.0,
+                        "take_profit": 1000.0,
+                        "position_size": 0.08,
+                        "slippage": -22.0
+                    },
+                    "execution_time": "2026-08-09T20:35:13",
+                    "not_executed_reason": "",
+                    "not_executed_note": ""
+                },
+                "outcome": {
+                    "applicable": true,
+                    "close_price": 978.0,
+                    "close_time": "2026-08-09T20:36:23",
+                    "pnl": 500.0,
+                    "result": "Win",
+                    "r_multiple": 40.82
+                },
+                "psychology": [
+                    "Confident",
+                    "Calm / Disciplined"
+                ],
+                "lesson": {
+                    "went_well": "Follow your plan",
+                    "to_improve": "avoid complications",
+                    "key_takeaway": "watch your emotions."
+                },
+                "screenshots": [],
+                "adherence": {
+                    "applicable": true,
+                    "results": [
+                        {
+                            "condition": "no more than 3 trades",
+                            "followed": true
+                        },
+                        {
+                            "condition": "obey risk limit",
+                            "followed": true
+                        },
+                        {
+                            "condition": "Undefined flactuations today",
+                            "followed": true
+                        }
+                    ],
+                    "conditions_met": 3,
+                    "conditions_total": 3,
+                    "adherence_pct": 100.0,
+                    "warnings": []
+                }
+            }
+        ],
+        "statistics": {
+            "total_trades": 2,
+            "wins": 2,
+            "losses": 0,
+            "break_even": 0,
+            "win_rate": 100.0,
+            "gross_profit": 598.0,
+            "gross_loss": 0,
+            "net_profit": 598.0,
+            "average_rr": 24.41,
+            "best_trade": 500.0,
+            "worst_trade": 98.0,
+            "current_win_streak": 2,
+            "current_loss_streak": 0,
+            "best_win_streak": 2,
+            "best_loss_streak": 0,
+            "average_adherence_pct": 83.3,
+            "fully_adherent_trades": 2
+        }
+    }
+}

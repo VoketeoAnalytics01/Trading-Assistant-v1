@@ -36,16 +36,31 @@ def risk_validation(profile):
             f"({settings['minimum_rr']:.2f})."
         )
 
+    # -------- Account Balance --------
+    balance = profile["risk"]["account"]["balance"]
+
     # -------- Daily Loss Limit --------
-    if trade["risk_amount"] > settings["daily_loss_limit"]:
+    # daily_loss_limit is stored as a percentage.
+    daily_loss_limit_amount = (
+        balance * settings["daily_loss_limit"] / 100
+    )
+
+    if trade["risk_amount"] > daily_loss_limit_amount:
         validation["warnings"].append(
-            "Risk exceeds your daily loss limit."
+            f"Risk exceeds your daily loss limit "
+            f"({daily_loss_limit_amount:.2f})."
         )
 
     # -------- Weekly Loss Limit --------
-    if trade["risk_amount"] > settings["weekly_loss_limit"]:
+    # weekly_loss_limit is stored as a percentage.
+    weekly_loss_limit_amount = (
+        balance * settings["weekly_loss_limit"] / 100
+    )
+
+    if trade["risk_amount"] > weekly_loss_limit_amount:
         validation["warnings"].append(
-            "Risk exceeds your weekly loss limit."
+            f"Risk exceeds your weekly loss limit "
+            f"({weekly_loss_limit_amount:.2f})."
         )
 
     # -------- Final Decision --------

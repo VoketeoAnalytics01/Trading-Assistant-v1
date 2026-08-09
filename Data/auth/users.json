@@ -1,0 +1,10 @@
+{
+    "beta_test": {
+        "salt": "6c529ea3dcbcbf4020b2747aa2b57b6a",
+        "hash": "e41c1e8d800e5fe59d980d2c9b2e1a5705a689c3143e3c139d877696f8dbe552"
+    },
+    "test_user": {
+        "salt": "52e38d8c3488f8557422ecf44e6825d5",
+        "hash": "4792fc815cc3467481e22a6c1f59a9f19913e29822f69b06193cb8b36ae85db9"
+    }
+}

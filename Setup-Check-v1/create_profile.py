@@ -1,7 +1,7 @@
-def create_profile():
+def create_profile(username=""):
     """Creates and returns a blank profile dict with all default fields."""
     return {
-        "username": "",
+        "username": username,
         "full_name": "",
         "email": "",
         "country": "",

@@ -1,0 +1,39 @@
+{
+    "username": "Wek",
+    "full_name": "Wek Jay",
+    "email": "wekjay@gmail.com",
+    "country": "",
+    "timezone": "",
+    "account_type": "Free",
+    "trading": {
+        "style": "scalping",
+        "experience": "Professional",
+        "sessions": [
+            "London Session",
+            "New York Session"
+        ],
+        "markets": [
+            "Forex",
+            "Crypto"
+        ],
+        "assets": [
+            "GBPUSD",
+            "USDJPY",
+            "SOLUSD"
+        ]
+    },
+    "trading_plan": {
+        "rules_count": 3,
+        "minimum_conditions": 3,
+        "setup_threshold": 75,
+        "conditions": [
+            "london highs taken out",
+            "equal highs at ny Am session",
+            "At least 2 timeframe aligned"
+        ]
+    },
+    "performance": {},
+    "goals": [],
+    "preferences": {},
+    "premium": {}
+}

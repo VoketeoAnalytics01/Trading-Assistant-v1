@@ -9,14 +9,23 @@ def trade_execution(profile):
     # Pull planned data from Risk-Check (if available)
     risk_trade = profile.get("risk", {}).get("current_trade", {})
 
+    # Risk-Check uses "entry" and "rr".
+    # Journal uses "entry_price" and "risk_reward_ratio".
+    # Map the fields here so both modules communicate correctly.
     planned = {
-        "entry_price": risk_trade.get("entry_price", 0),
+        "entry_price": risk_trade.get(
+            "entry",
+            risk_trade.get("entry_price", 0)
+        ),
         "stop_loss": risk_trade.get("stop_loss", 0),
         "take_profit": risk_trade.get("take_profit", 0),
         "position_size": risk_trade.get("position_size", 0),
         "risk_amount": risk_trade.get("risk_amount", 0),
         "reward_amount": risk_trade.get("reward_amount", 0),
-        "risk_reward_ratio": risk_trade.get("risk_reward_ratio", 0)
+        "risk_reward_ratio": risk_trade.get(
+            "rr",
+            risk_trade.get("risk_reward_ratio", 0)
+        )
     }
 
     if risk_trade:
@@ -26,7 +35,10 @@ def trade_execution(profile):
         print(f"  Take Profit  : {planned['take_profit']}")
         print(f"  Position Size: {planned['position_size']}")
     else:
-        print("\nNo Risk-Check data found for this trade -- planned values left blank.")
+        print(
+            "\nNo Risk-Check data found for this trade "
+            "-- planned values left blank."
+        )
 
     print("\nWas this trade executed?")
     print("1. Yes")
@@ -34,12 +46,15 @@ def trade_execution(profile):
 
     while True:
         choice = input("Select 1-2: ").strip()
+
         if choice == "1":
             executed = True
             break
+
         elif choice == "2":
             executed = False
             break
+
         print("Invalid choice. Please select 1 or 2.")
 
     actual = {
@@ -49,11 +64,13 @@ def trade_execution(profile):
         "position_size": 0,
         "slippage": 0
     }
+
     not_executed_reason = ""
     not_executed_note = ""
     execution_time = None
 
     if not executed:
+
         print("\nWhy was the trade not executed?")
 
         reasons = {
@@ -71,22 +88,33 @@ def trade_execution(profile):
 
         while True:
             choice = input("Select reason: ").strip()
+
             if choice in reasons:
                 not_executed_reason = reasons[choice]
                 break
+
             print("Invalid choice.")
 
         if not_executed_reason == "Other":
-            not_executed_note = input("Describe briefly: ").strip()
+            not_executed_note = input(
+                "Describe briefly: "
+            ).strip()
 
     else:
+
         while True:
-            price_input = input("Actual execution price: ").strip()
+            price_input = input(
+                "Actual execution price: "
+            ).strip()
+
             try:
                 execution_price = float(price_input)
+
                 if execution_price > 0:
                     break
+
                 print("Price must be greater than zero.")
+
             except ValueError:
                 print("Please enter a valid number.")
 
@@ -96,9 +124,14 @@ def trade_execution(profile):
         actual["position_size"] = planned["position_size"]
 
         if planned["entry_price"]:
-            actual["slippage"] = round(execution_price - planned["entry_price"], 5)
+            actual["slippage"] = round(
+                execution_price - planned["entry_price"],
+                5
+            )
 
-        execution_time = datetime.now().isoformat(timespec="seconds")
+        execution_time = datetime.now().isoformat(
+            timespec="seconds"
+        )
 
     profile["journal"]["current_trade"]["execution"] = {
         "executed": executed,
@@ -112,13 +145,19 @@ def trade_execution(profile):
     print("\n=== Execution Recorded ===")
 
     if executed:
+
         print("Status          : Executed")
         print(f"Execution Price : {actual['entry_price']}")
+
         if planned["entry_price"]:
             print(f"Slippage        : {actual['slippage']}")
+
         print(f"Execution Time  : {execution_time}")
+
     else:
+
         print("Status          : Not Executed")
         print(f"Reason          : {not_executed_reason}")
+
         if not_executed_note:
             print(f"Note            : {not_executed_note}")

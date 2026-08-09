@@ -9,9 +9,11 @@ from trading_asset import trading_asset
 from trading_plan import trading_plan
 
 
-def setup_check():
+def setup_check(username):
 
-    profile = create_profile()
+    profile = create_profile(username)
+
+    profile["username"] = username
 
     basic_identity(profile)
     trading_style(profile)
@@ -29,7 +31,7 @@ if __name__ == "__main__":
 
     print("=== Trading Assistant V1 ===\n")
 
-    profile = setup_check()
+    profile = setup_check("test_user")
 
     print("\nProfile Created Successfully!")
     print(profile)

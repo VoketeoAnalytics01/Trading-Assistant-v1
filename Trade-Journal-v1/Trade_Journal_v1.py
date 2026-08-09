@@ -28,6 +28,7 @@ def trade_journal(profile):
 
     journal_summary_display(profile)
 
+    return profile
 
 if __name__ == "__main__":
     print("=== Trade Journal V1 ===\n")
