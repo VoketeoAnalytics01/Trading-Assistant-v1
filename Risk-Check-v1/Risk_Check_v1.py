@@ -29,6 +29,8 @@ def risk_check(profile):
     risk_validation(profile)
     trade_checklist(profile)
     trade_summary_display(profile)
+    
+    return profile
 
 
 if __name__ == "__main__":

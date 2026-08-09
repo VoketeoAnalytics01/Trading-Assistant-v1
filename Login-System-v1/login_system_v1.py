@@ -84,6 +84,7 @@ def login_system():
                     print(f"Welcome, {username}")
                     print("Login successful!")
                     print('=' * 40)
+                    return username
                 else:
                     tries -= 1
                     print("Invalid username or password.")
