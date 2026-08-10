@@ -2,6 +2,10 @@ import sys
 from pathlib import Path
 
 
+# ==============================
+# PROJECT PATH
+# ==============================
+
 PROJECT_ROOT = Path(__file__).resolve().parent
 
 sys.path.append(str(PROJECT_ROOT / "Login-System-v1"))
@@ -11,10 +15,13 @@ sys.path.append(str(PROJECT_ROOT / "Trade-Journal-v1"))
 sys.path.append(str(PROJECT_ROOT / "Shared"))
 
 
+# ==============================
+# MODULE IMPORTS
+# ==============================
+
 from login_system_v1 import login_system
 from Setup_Check_v1 import setup_check
-from Risk_Check_v1 import risk_check
-from Trade_Journal_v1 import trade_journal
+from main_dashboard import main_dashboard
 
 from profile_manager import (
     load_profile,
@@ -22,6 +29,10 @@ from profile_manager import (
     profile_exists
 )
 
+
+# ==============================
+# APPLICATION START
+# ==============================
 
 print("=== Trading Assistant V1 Beta ===\n")
 
@@ -33,7 +44,10 @@ print("=== Trading Assistant V1 Beta ===\n")
 username = login_system()
 
 if not username:
-    print("\nAuthentication failed. Returning to login menu.")
+
+    print("\nAuthentication failed.")
+    print("Returning to login menu.")
+
     sys.exit()
 
 
@@ -63,24 +77,10 @@ else:
 
 
 # ==============================
-# RISK CHECK
+# MAIN DASHBOARD
 # ==============================
 
-profile = risk_check(profile)
-
-
-# ==============================
-# SAVE UPDATED PROFILE
-# ==============================
-
-save_profile(username, profile)
-
-
-# ==============================
-# TRADE JOURNAL
-# ==============================
-
-profile = trade_journal(profile)
+profile = main_dashboard(profile)
 
 
 # ==============================
@@ -90,4 +90,10 @@ profile = trade_journal(profile)
 save_profile(username, profile)
 
 
-print("\n=== Trading Assistant V1 Session Complete ===")
+# ==============================
+# SESSION COMPLETE
+# ==============================
+
+print("\n========================================")
+print("   TRADING ASSISTANT V1 SESSION COMPLETE")
+print("========================================")
