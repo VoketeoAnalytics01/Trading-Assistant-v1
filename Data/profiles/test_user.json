@@ -50,14 +50,14 @@
         "current_trade": {
             "asset": "Stock Options",
             "market": "Options",
-            "direction": "Sell",
-            "entry": 1500.0,
-            "stop_loss": 1650.0,
-            "take_profit": 1000.0,
-            "position_size": 0.08,
+            "direction": "Buy",
+            "entry": 4500.0,
+            "stop_loss": 4450.0,
+            "take_profit": 4670.0,
+            "position_size": 0.24,
             "risk_amount": 12.25,
-            "reward_amount": 500.0,
-            "rr": 3.33,
+            "reward_amount": 170.0,
+            "rr": 3.4,
             "status": "Approved"
         },
         "validation": {
@@ -70,12 +70,12 @@
             "answers": {
                 "no more than 3 trades": true,
                 "obey risk limit": true,
-                "Undefined flactuations today": true
+                "Undefined flactuations today": false
             },
-            "conditions_met": 3,
+            "conditions_met": 2,
             "total_conditions": 3,
-            "setup_score": 100.0,
-            "passed": true
+            "setup_score": 66.67,
+            "passed": false
         }
     },
     "journal": {
