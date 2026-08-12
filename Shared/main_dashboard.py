@@ -11,7 +11,7 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.append(str(PROJECT_ROOT / "Risk-Check-v1"))
 sys.path.append(str(PROJECT_ROOT / "Trade-Journal-v1"))
 sys.path.append(str(PROJECT_ROOT / "Shared"))
-
+sys.path.append(str(PROJECT_ROOT / "Analytics-v1"))
 
 # ==============================
 # MODULE IMPORTS
@@ -20,7 +20,7 @@ sys.path.append(str(PROJECT_ROOT / "Shared"))
 from Risk_Check_v1 import risk_check
 from Trade_Journal_v1 import trade_journal
 from profile_manager import save_profile
-
+from analytics import analytics
 
 # ==============================
 # PROFILE STRUCTURE
@@ -113,7 +113,7 @@ def main_dashboard(profile):
         print("[2] Risk Check")
         print("[3] Trade Journal")
         print("[4] My Playbook")
-        print("[5] Analytics (Coming Soon)")
+        print("[5] Analytics")
 
         if early_access:
             print("[6] AI Trading Assistant")
@@ -172,8 +172,11 @@ def main_dashboard(profile):
 
         elif choice == "5":
 
-            print("\n=== Analytics ===")
-            print("Analytics module is coming soon.")
+            print("\n=== Opening Analytics ===")
+
+            analytics_results = analytics(profile)
+
+            print("\nAnalytics session completed.")
 
         # ==============================
         # AI ASSISTANT
